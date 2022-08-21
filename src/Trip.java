@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Trip {
 
     static void details() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("What is your child's name?");
+        Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         System.out.println(name);
         System.out.println("How old is your child?");
@@ -15,9 +15,9 @@ public class Trip {
         }else if(age>18){
             System.out.println("Your child is unfortunately too old for this trip.");
             System.exit(1);
-        }else{
-            System.out.println("How tall is your child?");
         }
+
+        System.out.println("How tall is your child?");
         double height = sc.nextDouble();
 
         if(height<120){
@@ -28,11 +28,11 @@ public class Trip {
 
     static void health(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Has your child been vaccinated? Please reply with a yes or no");
+        System.out.println("Has your child been vaccinated? Please reply with a yes or no.");
         boolean vaccinated = sc.hasNext("yes");
 
         if(!vaccinated){
-            System.out.println("Your child has to be vaccinated in order to be eligible for the trip");
+            System.out.println("Your child has to be vaccinated in order to be eligible for the trip.");
             System.exit(1);
         }else {
             System.out.println("Congratulations, Your child is eligible for the trip!");
@@ -65,6 +65,7 @@ public class Trip {
         details();
         health();
         cost();
+
 
 
     }
