@@ -7,7 +7,8 @@ public class Trip {
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         if(name.contains("1") || name.contains("2") || name.contains("3") || name.contains("4")
-        || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8") || name.contains("9") ||  name.contains("0")){
+        || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8")
+        || name.contains("9") ||  name.contains("0")){
            System.exit(1);
         }
 
