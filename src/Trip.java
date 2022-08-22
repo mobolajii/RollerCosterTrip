@@ -6,6 +6,11 @@ public class Trip {
         System.out.println("What is your child's name?");
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
+        if(name.contains("1") || name.contains("2") || name.contains("3") || name.contains("4")
+        || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8") || name.contains("9") ||  name.contains("0")){
+           System.exit(1);
+        }
+
         System.out.println(name);
         System.out.println("How old is your child?");
         int age = sc.nextInt();
@@ -37,9 +42,7 @@ public class Trip {
         }else {
             System.out.println("Congratulations, Your child is eligible for the trip!");
         }
-
     }
-
     static void cost(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Do you have a discount? If yes give in the number i.e. 10, 20, 30 or 40");
@@ -57,8 +60,6 @@ public class Trip {
                     System.out.println(price);
         }
     }
-
-
 
     public static void main(String[] args) {
         System.out.println("Is my kid eligible to go on a roller coaster class trip during covid?");
