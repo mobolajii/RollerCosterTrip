@@ -2,71 +2,114 @@ import java.util.Scanner;
 
 public class Trip {
 
-    static void details() {
-        System.out.println("What is your child's name?");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        if(name.contains("1") || name.contains("2") || name.contains("3") || name.contains("4")
-        || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8")
-        || name.contains("9") ||  name.contains("0")){
-           System.exit(1);
+    static String name(String firstName, String lastName){
+        if(firstName.contains("1") || firstName.contains("2") || firstName.contains("3") || firstName.contains("4")
+                || firstName.contains("5") || firstName.contains("6") || firstName.contains("7") || firstName.contains("8")
+                || firstName.contains("9") ||  firstName.contains("0")){
+            System.exit(1);
         }
 
-        System.out.println(name);
-        System.out.println("How old is your child?");
-        int age = sc.nextInt();
-        if(age<12){
+        if(lastName.contains("1") || lastName.contains("2") || lastName.contains("3") || lastName.contains("4")
+                || lastName.contains("5") || lastName.contains("6") || lastName.contains("7") || lastName.contains("8")
+                || lastName.contains("9") ||  lastName.contains("0")){
+            System.exit(1);
+        }
+
+        return firstName + " " + lastName;
+    }
+
+    static int age(int a){
+        if(a<12){
             System.out.println("Your child is unfortunately too young for this trip.");
             System.exit(1);
-        }else if(age>18){
+        }else if(a>18){
             System.out.println("Your child is unfortunately too old for this trip.");
             System.exit(1);
         }
 
-        System.out.println("How tall is your child?");
-        double height = sc.nextDouble();
+        return a;
+    }
 
-        if(height<120){
+    static int height(String b){
+        int input = Integer.parseInt(b);
+        if(input<120){
             System.out.println("Your child is unfortunately too short for this ride.");
             System.exit(1);
         }
+
+        return input;
     }
 
-    static void health(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Has your child been vaccinated? Please reply with a yes or no.");
-        boolean vaccinated = sc.hasNext("yes");
 
-        if(!vaccinated){
-            System.out.println("Your child has to be vaccinated in order to be eligible for the trip.");
+    static String health(String choice){
+        if(!(choice.equals("yes") || choice.equals("no")) ){
             System.exit(1);
-        }else {
-            System.out.println("Congratulations, Your child is eligible for the trip!");
         }
+        return choice;
     }
-    static void cost(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Do you have a discount? If yes give in the number i.e. 10, 20, 30 or 40");
-        int discount = sc.nextInt();
-        System.out.println("The price of the trip will be: ");
+
+    static double cost(int discount){
         double price = 50.0;
-
-
         switch (discount) {
-            case 10 -> System.out.println(price - (price * 0.1));
-            case 20 -> System.out.println(price - (price * 0.2));
-            case 30 -> System.out.println(price - (price * 0.3));
-            case 40 -> System.out.println(price - (price * 0.4));
+            case 10 -> price = price - (price * 0.1);
+            case 20 -> price = price - (price * 0.2);
+            case 30 -> price = price - (price * 0.3);
+            case 40 -> price = price - (price * 0.4);
             default ->
-                    System.out.println(price);
+                    System.out.println("Current discounts only range from 10% to 40%");
         }
+        return price;
     }
+
+
+
+
+
+
 
     public static void main(String[] args) {
         System.out.println("Is my kid eligible to go on a roller coaster class trip during covid?");
-        details();
-        health();
-        cost();
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.println("Give in the first name of your child.");
+        String firstName = sc.nextLine();
+        System.out.println("Give in the last name of your child.");
+        String lastName = sc.nextLine();
+        name(firstName, lastName);
+
+
+        System.out.println("How old is your child?");
+        int a = sc.nextInt();
+        age(a);
+
+        sc.nextLine(); //consumes the empty space left by the previous int
+        System.out.println("Give in the height of your child in cm.");
+        String  b  =sc.nextLine();
+        height(b);
+
+
+        System.out.println("Has your child been vaccinated? Please reply with a yes or no");
+        String choice = sc.nextLine();
+        health(choice);
+
+
+
+
+
+        System.out.println("Do you have a discount? If so give in the number e.g 10.");
+        int discount = sc.nextInt();
+        cost(discount);
+
+
+
+
+        System.out.println("Name " + name(firstName, lastName));
+        System.out.println("Age " + age(a));
+        System.out.println("Height " + height(b) + " cm");
+        System.out.println("Vaccinated " + health( choice) );
+        System.out.println("Price " + cost(discount));
+
 
     }
 }
