@@ -61,6 +61,8 @@ public class Trip {
         return price;
     }
 
+  
+
 
 
 
@@ -73,42 +75,42 @@ public class Trip {
 
 
         System.out.println("Give in the first name of your child.");
-        String firstName = sc.nextLine();
+        String firstNameOfChild = sc.nextLine();
         System.out.println("Give in the last name of your child.");
-        String lastName = sc.nextLine();
-        name(firstName, lastName);
+        String lastNameOfChild = sc.nextLine();
+        name(firstNameOfChild, lastNameOfChild);
 
 
         System.out.println("How old is your child?");
-        int a = sc.nextInt();
-        age(a);
+        int years = sc.nextInt();
+        age(years);
 
         sc.nextLine(); //consumes the empty space left by the previous int
         System.out.println("Give in the height of your child in cm.");
-        String  b  =sc.nextLine();
-        height(b);
+        String  h  =sc.nextLine();
+        height(h);
 
 
         System.out.println("Has your child been vaccinated? Please reply with a yes or no");
-        String choice = sc.nextLine();
-        health(choice);
+        String decision = sc.nextLine();
+        health(decision);
 
 
 
 
 
         System.out.println("Do you have a discount? If so give in the number e.g 10.");
-        int discount = sc.nextInt();
-        cost(discount);
+        int percentage = sc.nextInt();
+        cost(percentage);
 
 
 
 
-        System.out.println("Name " + name(firstName, lastName));
-        System.out.println("Age " + age(a));
-        System.out.println("Height " + height(b) + " cm");
-        System.out.println("Vaccinated " + health( choice) );
-        System.out.println("Price " + cost(discount));
+        System.out.println("Name: " + name(firstNameOfChild, lastNameOfChild));
+        System.out.println("Age: " + age(years));
+        System.out.println("Height: " + height(h) + " cm");
+        System.out.println("Vaccinated: " + health( decision) );
+        System.out.println("Price: " + cost(percentage));
 
 
     }
